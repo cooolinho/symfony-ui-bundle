@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Cooolinho\UiBundle\:
+        resource: '../../../src/*'
+        exclude: '../../../src/{DependencyInjection,Resources,Tests}'
+
+    Cooolinho\UiBundle\Controller\:
+        resource: '../../../src/Controller'
+        tags: ['controller.service_arguments']
