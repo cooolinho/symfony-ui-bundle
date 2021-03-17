@@ -1,6 +1,6 @@
 <?php
 
-namespace Cooolinho\UiBundle\Tests;
+namespace Cooolinho\Bundle\UiBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

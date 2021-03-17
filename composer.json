@@ -1,7 +1,7 @@
 {
   "name": "cooolinho/symfony-ui-bundle",
   "license": "GPL-2.0-only",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "symfony-bundle",
   "description": "test reusable bundle",
   "minimum-stability": "dev",
@@ -22,12 +22,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Cooolinho\\UiBundle\\": "src/"
+      "Cooolinho\\Bundle\\UiBundle\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Cooolinho\\UiBundle\\Tests\\": "tests/"
+      "Cooolinho\\Bundle\\UiBundle\\Tests\\": "tests/"
     }
   }
 }

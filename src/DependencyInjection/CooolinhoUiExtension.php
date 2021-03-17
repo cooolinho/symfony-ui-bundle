@@ -1,6 +1,6 @@
 <?php
 
-namespace Cooolinho\UiBundle\DependencyInjection;
+namespace Cooolinho\Bundle\UiBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
