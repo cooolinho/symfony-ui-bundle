@@ -41,43 +41,44 @@
                         {% endblock %}
 
                         {{ form_start(form) }}
-{#                        <input type="hidden" name="login_form[_csrf_token]" value="{{ csrf_token('authenticate') }}">#}
 
-{#                        {{ form_widget(form._csrf_token) }}#}
+                        {% block login_form_email_outer %}
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
 
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                {% block login_form_email %}
+                                    {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'E-Mail', 'name': 'email'}}) }}
+                                {% endblock %}
                             </div>
+                        {% endblock %}
 
-                            {% block login_form_email %}
-                                {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'E-Mail', 'name': 'email'}}) }}
-                            {% endblock %}
-                        </div>
+                        {% block login_form_password_outer %}
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
 
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                {% block login_form_password %}
+                                    {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password', 'name': 'password'}}) }}
+                                {% endblock %}
                             </div>
-
-                            {% block login_form_password %}
-                                {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password', 'name': 'password'}}) }}
-                            {% endblock %}
-                        </div>
+                        {% endblock %}
 
                         {% block login_form_password_after %}{% endblock %}
 
-                        <div class="row align-items-center remember">
-                            {% block login_form_remember_me %}
-                                {{ form_widget(form._remember_me) }}Remember Me
-                            {% endblock %}
-                        </div>
+                        {% block login_form_remember_me_outer %}
+                            <div class="row align-items-center remember">
+                                {% block login_form_remember_me %}
+                                    {{ form_widget(form._remember_me) }}Remember Me
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
 
                         <div class="form-group">
                             {{ form_widget(form.submit, {'attr': {'class': 'btn float-right login_btn'}}) }}
                         </div>
-
-{#                        {% do form._token.setRendered %}#}
                         {{ form_end(form) }}
                     {% endblock %}
                 </div>
