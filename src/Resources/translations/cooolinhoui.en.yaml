@@ -1,0 +1,7 @@
+cooolinhoui:
+    login:
+        title: 'Sign In'
+        signup: 'Dont have an account?<a href="%url%">Sign Up</a>'
+        forgot_password: '<a href="%url%">Forgot password?</a>'
+        remember: 'Remember me'
+        submit: Login

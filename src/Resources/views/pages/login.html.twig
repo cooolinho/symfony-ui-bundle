@@ -1,3 +1,5 @@
+{% trans_default_domain 'cooolinhoui' %}
+
 {% extends '@CooolinhoUi/base.html.twig' %}
 
 {% block stylesheets %}
@@ -11,7 +13,7 @@
     <script src="{{ asset('bundles/cooolinhoui/lib/jquery.min.js') }}"></script>
 {% endblock %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}{{ 'cooolinhoui.login.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -21,7 +23,9 @@
                 <div class="card-header">
                     {% block login_header %}
                         <h3>
-                            {% block login_title %}Sign In{% endblock %}
+                            {% block login_title %}
+                                {{ 'cooolinhoui.login.title'|trans }}
+                            {% endblock %}
                         </h3>
                         <div class="d-flex justify-content-end social_icon">
                             <a href="https://github.com/cooolino" target="_blank">
@@ -61,7 +65,9 @@
                                 </div>
 
                                 {% block login_form_password %}
-                                    {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password', 'name': 'password'}}) }}
+                                    {{ form_widget(form.password, {
+                                        'attr': {'class': 'form-control', 'placeholder': 'Password', 'name': 'password'},
+                                    }) }}
                                 {% endblock %}
                             </div>
                         {% endblock %}
@@ -71,13 +77,18 @@
                         {% block login_form_remember_me_outer %}
                             <div class="row align-items-center remember">
                                 {% block login_form_remember_me %}
-                                    {{ form_widget(form._remember_me) }}Remember Me
+                                    {{ form_widget(form._remember_me, {
+                                        'label': 'cooolinhoui.login.remember'|trans
+                                    }) }}
                                 {% endblock %}
                             </div>
                         {% endblock %}
 
                         <div class="form-group">
-                            {{ form_widget(form.submit, {'attr': {'class': 'btn float-right login_btn'}}) }}
+                            {{ form_widget(form.submit, {
+                                'attr': {'class': 'btn float-right login_btn'},
+                                'label': 'cooolinhoui.login.submit'|trans
+                            }) }}
                         </div>
                         {{ form_end(form) }}
                     {% endblock %}
@@ -86,10 +97,10 @@
                 {% block login_footer %}
                     <div class="card-footer">
                             <div class="d-flex justify-content-center links">
-                                Don't have an account?<a href="{{ path('app_register') }}">Sign Up</a>
+                                {{ 'cooolinhoui.login.signup'|trans({'%url%': path('app_register')})|raw }}
                             </div>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ path('app_forgot_password_request') }}">Forgot your password?</a>
+                                {{ 'cooolinhoui.login.forgot_password'|trans({'%url%': path('app_forgot_password_request')})|raw }}
                             </div>
                             <div class="d-flex justify-content-center">
                                 <p class="mt-5 mb-3 text-muted">© {{ 'now'|date('Y') }}</p>
