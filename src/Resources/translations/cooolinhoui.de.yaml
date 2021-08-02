@@ -1,7 +1,0 @@
-cooolinhoui:
-    login:
-        title: Anmelden
-        signup: 'Noch kein Account? <a href="%url%">Registrieren</a>'
-        forgot_password: '<a href="%url%">Passwort vergessen?</a>'
-        remember: 'An mich erinnern'
-        submit: Login
