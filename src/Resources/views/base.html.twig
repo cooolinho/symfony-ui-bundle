@@ -8,11 +8,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/cooolinhoui/lib/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/cooolinhoui/lib/fontawesome/css/all.min.css') }}">
+    {% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
 
-    {% block head_javascripts %}{% endblock %}
+    {% block head_javascripts %}
+        <script src="{{ asset('bundles/cooolinhoui/lib/jquery/jquery.js') }}"></script>
+        <script src="{{ asset('bundles/cooolinhoui/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('bundles/cooolinhoui/lib/fontawesome/js/all.min.js') }}"></script>
+    {% endblock %}
 </head>
 <body>
 {% block body %}

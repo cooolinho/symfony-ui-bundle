@@ -5,6 +5,7 @@
         opts: {
             'debug': false,
             'toggleSelector': '[data-toggle=modal]',
+            'modalFormSelector': '.modal form',
         },
         modalOptions: {
             backdrop: true, // Includes a modal-backdrop element. Alternatively, specify static for a backdrop which doesn't close the modal on click.
@@ -22,9 +23,11 @@
             me.debug('registerEvents');
 
             $(document).on('click', me.opts.toggleSelector, function (event) {
-                event.preventDefault();
-
                 me.onToggleSelectorClick(event);
+            });
+
+            $(document).on('submit', me.opts.modalFormSelector, function (event) {
+                me.onModalFormSubmit(event);
             });
         },
         onToggleSelectorClick: function (event) {
@@ -33,6 +36,8 @@
                 url = target.attr('data-toggle-url');
 
             me.debug(['onToggleSelectorClick', event, target, url]);
+
+            event.preventDefault();
 
             $.ajax({
                 url: url,
@@ -45,28 +50,23 @@
             });
         },
         createModalByResponse: function (response) {
-            $('body').append($(response));
-
-            let me = this,
-                modal = new bootstrap.Modal(document.getElementById('modal'), me.modalOptions)
+            let $modal = $(response).appendTo('body'),
+                me = this,
+                modal = new bootstrap.Modal(document.getElementById($modal.attr('id')), me.modalOptions)
 
             me.debug(['createModalByResponse', response, modal]);
-            me.addEventsToModal(modal);
+            me.addEventsToBootstrapModal(modal);
 
             return modal;
         },
-        addEventsToModal: function (modal) {
+        addEventsToBootstrapModal: function (modal) {
             let me = this,
                 $modal = $(modal._element);
 
-            me.debug(['addEventsToModal', modal]);
+            me.debug(['addEventsToBootstrapModal', modal]);
 
             $modal.on('hidden.bs.modal', function (event) {
                 $modal.remove();
-            });
-
-            $modal.find('form').submit(function (event) {
-                me.onModalFormSubmit(event);
             });
         },
         onModalFormSubmit: function (event) {
