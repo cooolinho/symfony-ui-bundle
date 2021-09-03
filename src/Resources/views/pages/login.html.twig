@@ -38,20 +38,16 @@
                         {% block form_start %}{% endblock %}
 
                         {% block login_form_email_outer %}
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 {% block login_form_email %}{% endblock %}
                             </div>
                         {% endblock %}
 
                         {% block login_form_password_outer %}
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
 
                                 {% block login_form_password %}{% endblock %}
                             </div>
@@ -60,12 +56,12 @@
                         {% block login_form_password_after %}{% endblock %}
 
                         {% block login_form_remember_me_outer %}
-                            <div class="row align-items-center remember">
+                            <div class="align-items-center remember">
                                 {% block login_form_remember_me %}{% endblock %}
                             </div>
                         {% endblock %}
 
-                        <div class="form-group">
+                        <div class="form-group mt-3 text-center">
                             {% block login_form_submit %}{% endblock %}
                         </div>
 
