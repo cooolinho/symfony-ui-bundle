@@ -73,7 +73,7 @@ input:focus {
 }
 
 .remember input + label {
-    margin-left: 45px;
+    margin-left: 5px;
 }
 
 .login_btn {
