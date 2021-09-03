@@ -3,20 +3,18 @@
 <!doctype html>
 <html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSS -->
-    {% block stylesheets %}
-{#        {{ encore_entry_link_tags('app') }}#}
+    {% block head_meta_tags %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
+
+    {% block stylesheets %}{% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
 
     {% block head_javascripts %}{% endblock %}
 </head>
 <body>
-<!-- BODY -->
 {% block body %}
     <main class="{{ container }}">
         {% block main %}
@@ -25,9 +23,6 @@
     </main>
 {% endblock %}
 
-<!-- CSS -->
-{% block javascripts %}
-{#    {{ encore_entry_script_tags('app') }}#}
-{% endblock %}
+{% block javascripts %}{% endblock %}
 </body>
 </html>
