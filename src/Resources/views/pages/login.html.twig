@@ -3,16 +3,7 @@
 {% block stylesheets %}
     {{ parent() }}
 
-    <link rel="stylesheet" href="{{ asset('bundles/cooolinhoui/lib/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/cooolinhoui/lib/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/cooolinhoui/css/login.css') }}">
-{% endblock %}
-
-{% block head_javascripts %}
-    {{ parent() }}
-
-    <script src="{{ asset('bundles/cooolinhoui/lib/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bundles/cooolinhoui/lib/jquery.min.js') }}"></script>
 {% endblock %}
 
 {% block title %}Login{% endblock %}
