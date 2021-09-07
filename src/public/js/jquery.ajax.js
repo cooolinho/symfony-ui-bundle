@@ -2,6 +2,7 @@
     let ajax = {
         eventSuccess: 'ajax-post-success',
         eventFail: 'ajax-post-fail',
+        deleteText: 'Are u sure?',
         opts: {
             'debug': true,
             'selector': '[data-ajax-url]',
@@ -21,9 +22,19 @@
                 let $link = $(this);
                 let url = $link.attr('data-ajax-url');
 
-                me.debug('clicked');
-                me.debug($link);
+                me.debug(['clicked', $link]);
+
                 event.preventDefault();
+
+                if ($link.attr('data-action') === 'delete') {
+                    if ($link.attr('data-delete-text') !== undefined) {
+                        me.deleteText = $link.attr('data-delete-text');
+                    }
+
+                    if (!confirm(me.deleteText)) {
+                        return;
+                    }
+                }
 
                 ajax.sendRequest(url, event);
             });
