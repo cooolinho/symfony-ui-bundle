@@ -4,7 +4,7 @@
         eventFail: 'ajax-post-fail',
         deleteText: 'Are u sure?',
         opts: {
-            'debug': true,
+            'debug': false,
             'selector': '[data-ajax-url]',
         },
         init: function () {
